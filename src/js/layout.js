@@ -23,6 +23,14 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
+
+					{/* we will need a:
+						favorites page  /favorites
+						saved page  /saved
+						single person details page  /person/:id
+						single vehicle details page  /vehicles/:id
+						single planet details page  /planets/:id */}
+
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
