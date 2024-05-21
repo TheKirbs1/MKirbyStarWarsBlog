@@ -2,7 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			people: [],
-			PersonDetails: {
+			personDetails: {
 				description: "",
 				properties: {}
 			},

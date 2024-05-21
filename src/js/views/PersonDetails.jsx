@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-const PersonDetails = props => {
+const PersonDetails = () => {
 	const { store, actions } = useContext(Context);
     const params= useParams();
+    console.log(params)
 
     useEffect (() => {
         actions.getPersonDetails(params.id)
@@ -13,7 +14,7 @@ const PersonDetails = props => {
 
 	return (
 		<div className="jumbotron">
-			<h1 className="display-4">{store.PersonDetails.properties.name}</h1>
+			<h1 className="display-4">{store.personDetails.properties.name}</h1>
 
 			<hr className="my-4" />
 
