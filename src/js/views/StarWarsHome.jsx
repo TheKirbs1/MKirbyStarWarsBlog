@@ -10,57 +10,60 @@ const StarWarsHome = () => {
 
     return (
         <div className='container'>
-            <div className="row mt-5">
-                <div className="col-2 "><h2>Characters</h2></div>
-                <div className="col-8"></div>
+
+            <div className="row mt-5" >
+                <div className="col-2"></div>
+                <div className="col-8 "><h2>Characters</h2></div>
                 <div className="col-2"></div>
             </div>
-
-            <div className="row flex-nowrap justify-content-evenly overflow-auto">
+            <div className="row">
+                <div className="col-2"></div>
+                <div className="col-8 d-flex overflow-auto justify-content-evenly m-2">
                 {store.people.map(person => {
-
-                        return (
-
-                            <div className="col-md-4 mb-1">
-                            <PeopleCard key={person.uid} uid={person.uid} name={person.name} url={person.url} />
-                            </div>
-                    );
-                    })
-                }
-            </div>
-            <div className="row mt-5">
-                <div className="col-2"><h2>Planets</h2></div>
-                <div className="col-8"></div>
+                return (
+                    <PeopleCard key={person.uid} name={person.name} uid={person.uid} url={person.url}/>
+                );
+                })}
+                </div>
                 <div className="col-2"></div>
             </div>
+            
 
-            <div className="row flex-nowrap justify-content-evenly overflow-auto">
+            <div className="row mt-5" >
+                <div className="col-2"></div>
+                <div className="col-8 "><h2>Planets</h2></div>
+                <div className="col-2"></div>
+            </div>
+            <div className="row">
+                <div className="col-2"></div>
+                <div className="col-8 d-flex overflow-auto justify-content-evenly m-2">
                 {store.planets.map(planet => {
 
                     return (
-                        <div className="col-md-4 mb-1">
                     <PlanetCard key={planet.uid} uid={planet.uid} name={planet.name} url={planet.url} />
-                    </div>
                     );
-                    })
-                }
-            </div>
-            <div className="row mt-5">
-                <div className="col-2"><h2>Vehicles</h2></div>
-                <div className="col-8"></div>
+                    })}
+                </div>
                 <div className="col-2"></div>
             </div>
 
-            <div className="row flex-nowrap justify-content-evenly overflow-auto">
+
+            <div className="row mt-5" >
+                <div className="col-2"></div>
+                <div className="col-8 "><h2>Vehicles</h2></div>
+                <div className="col-2"></div>
+            </div>
+            <div className="row">
+                <div className="col-2"></div>
+                <div className="col-8 d-flex overflow-auto justify-content-evenly m-2">
                 {store.vehicles.map(vehicle => {
 
                     return (
-                        <div className="col-md-4 mb-1">
                     <VehicleCard key={vehicle.uid} uid={vehicle.uid} name={vehicle.name} url={vehicle.url} />
-                    </div>
                     );
-                    })
-                }
+                    })}
+                </div>
+                <div className="col-2"></div>
             </div>
         </div>
 

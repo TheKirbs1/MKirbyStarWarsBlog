@@ -4,8 +4,8 @@ const PeopleCard = ({ name, uid, url })=> {
 
     return (
         <div className="row">
-		    <div className="col-auto mx-auto">
-                <div className="card" style={{width: "18rem"}}>
+		    <div className="col-auto m-3">
+                <div className="card" style={{width: "12rem"}}>
                     <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="card-img-top" alt="" />
                     <div className="card-body">
                         <h5 className="card-title"> {name} </h5>
