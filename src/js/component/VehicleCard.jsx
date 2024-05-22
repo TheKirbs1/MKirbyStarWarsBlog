@@ -9,7 +9,7 @@ const VehicleCard = ({ name, uid, url })=> {
                     <img src={`https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`} className="card-img-top" alt="" />
                     <div className="card-body">
                         <h5 className="card-title"> { name } </h5>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                        <a href="#" className="btn btn-primary">Learn More</a>
                     </div>
                 </div>
             </div>

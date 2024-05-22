@@ -13,7 +13,7 @@ const PersonDetails = () => {
     }, [])
 
 	return (
-		<div className="jumbotron">
+		<div className="jumbotron text-white">
 			<h1 className="display-4">{store.personDetails.properties.name}</h1>
 
 			<hr className="my-4" />

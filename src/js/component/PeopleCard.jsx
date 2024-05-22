@@ -9,6 +9,11 @@ const PeopleCard = ({ name, uid, url })=> {
                     <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="card-img-top" alt="" />
                     <div className="card-body">
                         <h5 className="card-title"> {name} </h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Gender</li>
+                            <li class="list-group-item">Hair Color</li>
+                            <li class="list-group-item">Eye Color</li>
+                        </ul>
                         <Link to ={`/people/${uid}`}>
                             <button className="btn btn-primary">
                                 Learn More

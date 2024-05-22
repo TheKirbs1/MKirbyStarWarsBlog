@@ -9,11 +9,11 @@ const StarWarsHome = () => {
     const {store, actions } = useContext(Context);
 
     return (
-        <div className='container'>
+        <div className='container bg-dark'>
 
             <div className="row mt-5" >
                 <div className="col-2"></div>
-                <div className="col-8 "><h2>Characters</h2></div>
+                <div className="col-8 text-danger"><h2>Characters</h2></div>
                 <div className="col-2"></div>
             </div>
             <div className="row">
@@ -31,7 +31,7 @@ const StarWarsHome = () => {
 
             <div className="row mt-5" >
                 <div className="col-2"></div>
-                <div className="col-8 "><h2>Planets</h2></div>
+                <div className="col-8 text-success"><h2>Planets</h2></div>
                 <div className="col-2"></div>
             </div>
             <div className="row">
@@ -50,7 +50,7 @@ const StarWarsHome = () => {
 
             <div className="row mt-5" >
                 <div className="col-2"></div>
-                <div className="col-8 "><h2>Vehicles</h2></div>
+                <div className="col-8 text-warning"><h2>Vehicles</h2></div>
                 <div className="col-2"></div>
             </div>
             <div className="row">
