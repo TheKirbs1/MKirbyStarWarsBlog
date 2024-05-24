@@ -13,9 +13,9 @@ const PlanetCard = ({ name, uid, url })=> {
                     className="card-img-top" alt="" />
                     <div className="card-body">
                         <h5 className="card-title"> { name } </h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Population</li>
-                            <li class="list-group-item">Terrain</li>
+                        <ul className="list-group list-group-flush">
+                            <li className="list-group-item">Population</li>
+                            <li className="list-group-item">Terrain</li>
                         </ul>
                         <a href="#" className="btn btn-primary">Learn More</a>
                     </div>

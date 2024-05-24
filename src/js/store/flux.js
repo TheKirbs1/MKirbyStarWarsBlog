@@ -7,12 +7,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				properties: {}
 			},
 			vehicles: [],
-			// VehicleDetails [],
+			VehicleDetails: {
+				description: "",
+				properties: {}
+			},
 			planets: [],
-			// PlanetDetails [],
+			PlanetDetails: {
+				description: "",
+				properties: {}
+			},
 			favorites: []
 		},
+
+		
 		actions: {
+
 		getPeople: async () => {
 			const response = await fetch("https://www.swapi.tech/api/people/");
 			if (!response.ok) {
@@ -21,7 +30,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			const data= await response.json();
 			setStore({people: data.results})
 		},
-
 
 		getPersonDetails: async (id) => {
 			const response = await fetch(`https://www.swapi.tech/api/people/${id}`)
@@ -41,18 +49,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 		getVehicles: async () => {
 			const response = await fetch("https://www.swapi.tech/api/vehicles/");
 			if (!response.ok) {
@@ -61,7 +57,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 			const data= await response.json();
 			setStore({vehicles: data.results})
 		},
-		getVehicleDetails: () => {},
+
+		getVehicleDetails: async (id) => {
+			const response = await fetch(`https://www.swapi.tech/api/vehicles/${id}`)
+			if(!response.ok) {
+				throw new Error(response.statusText, response.statusText);
+			}
+			const data= await response.json();
+
+			const VehicleDetails = {
+				description: data.result.description,
+				properties: {...data.result.properties}
+			}
+
+			setStore({VehicleDetails: VehicleDetails});
+
+		},
 
 		getPlanets: async () => {
 			const response = await fetch("https://www.swapi.tech/api/planets/");
@@ -72,11 +83,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setStore({planets: data.results})
 		},
 
-		getPlanetDetails: () => {},
+		getPlanetDetails: async (id) => {
+			const response = await fetch(`https://www.swapi.tech/api/planets/${id}`)
+			if(!response.ok) {
+				throw new Error(response.statusText, response.statusText);
+			}
+			const data= await response.json();
 
-		addFavorite: () => {},
+			const PlanetDetails = {
+				description: data.result.description,
+				properties: {...data.result.properties}
+			}
 
-		removeFavorite: () => {}
+			setStore({PlanetDetails: PlanetDetails});
+
+		},
+
+		AddFavorite: (favItem) => {
+		const store = getStore();
+		store.favorites.push(favItem);
+		setStore(store)
+		},
+
+		deleteFavorite: (deleteFavorite) => {
+			const store = getStore();
+			setStore({
+				list: deleteFavorite,
+			});
+		},
+
 		}
 	};
 };
