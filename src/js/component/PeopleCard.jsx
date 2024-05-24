@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom"
+import { Context } from '../store/appContext';
 
 
 const PeopleCard = ({ name, uid, url })=> {
-
+    const {actions} = useContext(Context)
     console.log(name)
     return (
         <div className="row">
@@ -23,7 +24,7 @@ const PeopleCard = ({ name, uid, url })=> {
                                     Learn More
                                 </button>
                             </Link>
-                            <button className="FavBtn float-end" 
+                            <button className="btn float-end active"  role="button" aria-pressed="true"
                             onClick={() => {
 							actions.AddFavorite(name);
 							}}>
