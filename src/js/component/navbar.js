@@ -11,10 +11,10 @@ export const Navbar = () => {
                 <Link to="/">
                     <img src="https://pngimg.com/uploads/star_wars_logo/star_wars_logo_PNG39.png" className="img-fluid" style={{ height: 100 }} alt="Star Wars Logo" />
                 </Link>
-                <div className="ml-auto">
+                <div className="ml-auto mx-3">
                     <ul className="navbar-nav">
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle bg-primary text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a className="nav-link dropdown-toggle bg-danger text-black btn-lg" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Favorites
                             </a>
                             <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

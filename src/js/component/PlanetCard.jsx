@@ -17,7 +17,7 @@ const PlanetCard = ({ name, uid, url })=> {
                             <li className="list-group-item">Population</li>
                             <li className="list-group-item">Terrain</li>
                         </ul>
-                        <a href="#" className="btn btn-primary">Learn More</a>
+                        <a href="#" className="btn btn-info">Learn More</a>
                     </div>
                 </div>
             </div>

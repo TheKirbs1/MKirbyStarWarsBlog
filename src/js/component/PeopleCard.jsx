@@ -20,11 +20,11 @@ const PeopleCard = ({ name, uid, url })=> {
                         </ul>
                         <div>
                             <Link to ={`/people/${uid}`}>
-                                <button className="btn btn-primary">
+                                <button className="btn btn-info">
                                     Learn More
                                 </button>
                             </Link>
-                            <button className="btn float-end active"  role="button" aria-pressed="true"
+                            <button className="btn float-end"
                             onClick={() => {
 							actions.AddFavorite(name);
 							}}>
