@@ -103,14 +103,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 		const store = getStore();
 		store.favorites.push(favItem);
 		setStore(store)
+		console.log(store.favorites)
 		},
 
-		deleteFavorite: (deleteFavorite) => {
+		deleteFavorite: (deletedItem) => {
 			const store = getStore();
+			const updatedFavorites = store.favorites.filter(item => item !== deletedItem);
 			setStore({
-				list: deleteFavorite,
+				favorites: updatedFavorites,
 			});
 		},
+		
 
 		}
 	};

@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-const PersonDetails = () => {
+const PersonDetails = ({ name, uid, url }) => {
 	const { store, actions } = useContext(Context);
     const params= useParams();
-    console.log(params)
+    // console.log(params)
 
     useEffect (() => {
-        actions.getPersonDetails(params.id)
-    }, [])
+        actions.getPersonDetails(params.id, uid)
+    }, [uid])
 
 	return (
 
@@ -18,7 +18,7 @@ const PersonDetails = () => {
 			<div className="card mb-3 border-0 bg-dark text-white">
 			<div className="row g-0">
 				<div className="col-md-4">
-					<img src="" className="img-fluid rounded-start mx-3" alt="..." />
+					<img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="img-fluid rounded-start mx-3" alt="..." />
 				</div>
 				<div className="col-md-8">
 					<div className="card-body container-fluid mx-5 px-5">
