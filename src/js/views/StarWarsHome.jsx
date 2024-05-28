@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 
 import PeopleCard from '../component/PeopleCard.jsx';
 import PlanetCard from '../component/PlanetCard.jsx';
-import StarshipsCard from '../component/StartshipsCard.jsx';
+import StarshipsCard from '../component/StarshipsCard.jsx';
 
 const StarWarsHome = () => {
     const {store, actions } = useContext(Context);
@@ -50,7 +50,7 @@ const StarWarsHome = () => {
 
             <div className="row mt-5" >
                 <div className="col-2"></div>
-                <div className="col-8 text-warning"><h2>starships</h2></div>
+                <div className="col-8 text-warning"><h2>Starships</h2></div>
                 <div className="col-2"></div>
             </div>
             <div className="row">

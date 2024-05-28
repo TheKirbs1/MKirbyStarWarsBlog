@@ -10,13 +10,15 @@ const PersonDetails = ({ name, uid, url }) => {
     }, [uid, actions])
 
     const personDetails = store.personDetails[uid] || {};
+    console.log("Person Details from PersonDetails:", personDetails);
+//a
     
     return (
         <div>
             <div className="card mb-3 border-0 bg-dark text-white">
                 <div className="row g-0">
                     <div className="col-md-4">
-                        <img src ={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="card-img-top" alt="" />
+                        <img src ="https://placehold.co/800x600" className="card-img-top" alt="" />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body container-fluid mx-5 px-5">
@@ -39,9 +41,12 @@ const PersonDetails = ({ name, uid, url }) => {
                 <hr className="bg-danger border-2 border-top border-danger" />
                 <div className="container-fluid d-flex align-items-center justify-content-center">
                     <ul className="list-group list-group-horizontal bg-dark"> 
-                        <li className="list-group-item">Gender: { personDetails.properties && personDetails.properties.gender }</li>
-                        <li className="list-group-item">Hair Color: { personDetails.properties && personDetails.properties.hair_color }</li>
-                        <li className="list-group-item">Eye Color: { personDetails.properties && personDetails.properties.eye_color }</li>
+                        <li className="list-group-item bg-dark text-info border-1 border-light mx-3 py-3 text-center">Gender: { personDetails.properties && personDetails.properties.gender }</li>
+                        <li className="list-group-item bg-dark text-info border-1 border-light mx-3 py-3 text-center">Skin Color: { personDetails.properties && personDetails.properties.skin_color }</li>
+                        <li className="list-group-item bg-dark text-warning border-1 border-light mx-3 py-3 text-center">Hair Color: { personDetails.properties && personDetails.properties.hair_color }</li>
+                        <li className="list-group-item bg-dark text-info border-1 border-light mx-3 py-3 text-center">Eye Color: { personDetails.properties && personDetails.properties.eye_color }</li>
+                        <li className="list-group-item bg-dark text-info border-1 border-light mx-3 py-3 text-center">Birthdate: { personDetails.properties && personDetails.properties.birth_year }</li>
+                        <li className="list-group-item bg-dark text-info border-1 border-light mx-3 py-3 text-center">Weight: { personDetails.properties && personDetails.properties.mass }</li>
                     </ul>
                 </div>
             </div>
@@ -50,9 +55,7 @@ const PersonDetails = ({ name, uid, url }) => {
 };
 
 PersonDetails.propTypes = {
-    name: PropTypes.string.isRequired,
-    uid: PropTypes.string.isRequired,
-    url: PropTypes.string
-};
+	match: PropTypes.object
+}; 
 
 export default PersonDetails;

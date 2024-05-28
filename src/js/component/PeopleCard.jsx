@@ -12,7 +12,7 @@ const PeopleCard = ({ name, uid, url })=> {
     }, [uid])
 
     const personDetails = store.personDetails[uid] || {};
-    
+    console.log("Person Details from PeopleCard:", personDetails);
     
     return (
         <div className="row">
@@ -22,9 +22,9 @@ const PeopleCard = ({ name, uid, url })=> {
                     <div className="card-body">
                         <h5 className="card-title"> {name} </h5>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">Gender: { personDetails.properties && personDetails.properties.gender }</li>
-                            <li className="list-group-item">Hair Color: { personDetails.properties && personDetails.properties.hair_color }</li>
-                            <li className="list-group-item">Eye Color: { personDetails.properties && personDetails.properties.eye_color }</li>
+                            <li className="list-group-item"><h5>Gender: </h5>{ personDetails.properties && personDetails.properties.gender }</li>
+                            <li className="list-group-item"><h5>Hair Color: </h5>{ personDetails.properties && personDetails.properties.hair_color }</li>
+                            <li className="list-group-item"><h5>Eye Color: </h5>{ personDetails.properties && personDetails.properties.eye_color }</li>
                         </ul>
                         <div>
                             <Link to ={`/people/${uid}`}>

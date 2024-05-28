@@ -23,8 +23,8 @@ const PlanetCard = ({ name, uid, url })=> {
                     <div className="card-body">
                         <h5 className="card-title"> {name} </h5>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">Population: {planetDetails.properties && planetDetails.properties.population}</li>
-                            <li className="list-group-item">Terrain:  {planetDetails.properties && planetDetails.properties.terrain}</li> 
+                            <li className="list-group-item"><h5>Population: </h5>{planetDetails.properties && planetDetails.properties.population}</li>
+                            <li className="list-group-item"><h5>Terrain:  </h5>{planetDetails.properties && planetDetails.properties.terrain}</li> 
                         </ul>
                         <div>
                             <Link to ={`/planets/${uid}`}>
