@@ -11,7 +11,7 @@ const PersonDetails = ({ name, uid, url }) => {
 
     const personDetails = store.personDetails[uid] || {};
     console.log("Person Details from PersonDetails:", personDetails);
-
+//a
     
     return (
         <div>
