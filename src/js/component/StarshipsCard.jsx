@@ -10,7 +10,7 @@ const StarshipsCard = ({ name, uid, url })=> {
     }, [uid])
 
     const starshipsDetails = store.starshipsDetails[uid] || {};
-console.log(starshipsDetails)
+
     return (
         <div className="row">
 		    <div className="col-auto m-3">
@@ -19,12 +19,8 @@ console.log(starshipsDetails)
                     <div className="card-body">
                         <h5 className="card-title"> {name} </h5>
                         <ul className="list-group list-group-flush">
-                            {starshipsDetails.properties && (
-                                <>
-                                    <li className="list-group-item">Model: {starshipsDetails.properties.model}</li>
-                                    <li className="list-group-item">Pricetag: {starshipsDetails.properties.cost_in_credits}</li>
-                                </>
-                            )}
+                                    <li className="list-group-item"><h5>Hyperdrive Rating: </h5>{starshipsDetails.properties && starshipsDetails.properties.hyperdrive_rating }</li>
+                                    <li className="list-group-item"><h5>Pricetag:</h5> { starshipsDetails.properties && starshipsDetails.properties.cost_in_credits}</li>
                         </ul>
                         <div>
                             <Link to ={`/starships/${uid}`}>
