@@ -2,32 +2,32 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from "react-router-dom"
 import { Context } from '../store/appContext';
 
-const VehicleCard = ({ name, uid, url })=> {
+const StarshipsCard = ({ name, uid, url })=> {
     const { store, actions } = useContext(Context);
 
     useEffect (() => {
-        actions.getVehicleDetails(uid)
+        actions.getStarshipsDetails(uid)
     }, [uid])
 
-    const vehicleDetails = store.VehicleDetails[uid] || {};
-console.log(vehicleDetails)
+    const starshipsDetails = store.starshipsDetails[uid] || {};
+console.log(starshipsDetails)
     return (
         <div className="row">
 		    <div className="col-auto m-3">
                 <div className="card" style={{width: "14rem"}}>
-                    <img src={`https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`} className="card-img-top" alt="" />
+                    <img src={`https://starwars-visualguide.com/assets/img/starships/${uid}.jpg`} className="card-img-top" alt="" />
                     <div className="card-body">
                         <h5 className="card-title"> {name} </h5>
                         <ul className="list-group list-group-flush">
-                            {vehicleDetails.properties && (
+                            {starshipsDetails.properties && (
                                 <>
-                                    <li className="list-group-item">Model: {vehicleDetails.properties.model}</li>
-                                    <li className="list-group-item">Pricetag: {vehicleDetails.properties.cost_in_credits}</li>
+                                    <li className="list-group-item">Model: {starshipsDetails.properties.model}</li>
+                                    <li className="list-group-item">Pricetag: {starshipsDetails.properties.cost_in_credits}</li>
                                 </>
                             )}
                         </ul>
                         <div>
-                            <Link to ={`/vehicles/${uid}`}>
+                            <Link to ={`/starships/${uid}`}>
                                 <button className="btn btn-info">Learn More</button>
                             </Link>
                             <button className="btn float-end" onClick={() => {actions.AddFavorite(name);}}>
@@ -48,4 +48,4 @@ console.log(vehicleDetails)
     );
 }
 
-export default VehicleCard;
+export default StarshipsCard;

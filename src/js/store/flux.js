@@ -6,8 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				description: "",
 				properties: {}
 			},
-			vehicles: [],
-			VehicleDetails: {
+			starships: [],
+			starshipsDetails: {
 				description: "",
 				properties: {}
 			},
@@ -30,11 +30,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			const data= await response.json();
 			setStore({people: data.results})
 		},
-
+		
 		getPersonDetails: async (id) => {
 			const response = await fetch(`https://www.swapi.tech/api/people/${id}`)
 			if (!response.ok) {
-				throw new Error(response.statusText, response.statusText);
+				throw new Error(`${response.status} - ${response.statusText}`);
 			}
 			const data = await response.json();
 			const store = getStore();
@@ -50,35 +50,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setStore({ personDetails: updatedPersonDetails });
 		},
 		
+		
 
 
 
-		getVehicles: async () => {
-			const response = await fetch("https://www.swapi.tech/api/vehicles/");
+		getStarships: async () => {
+			const response = await fetch("https://www.swapi.tech/api/starships/");
 			if (!response.ok) {
 				throw new Error(response.status, response.statusText);
 			}
 			const data= await response.json();
-			setStore({vehicles: data.results})
+			setStore({starships: data.results})
 		},
 
-		getVehicleDetails: async (id) => {
-			const response = await fetch(`https://www.swapi.tech/api/vehicles/${id}`)
+		getStarshipsDetails: async (id) => {
+			const response = await fetch(`https://www.swapi.tech/api/starships/${id}`)
 			if (!response.ok) {
 				throw new Error(`${response.status} - ${response.statusText}`);
 			}
 			const data = await response.json();
 			const store = getStore();
 			
-			const updatedVehicleDetails = {
-				...store.vehicleDetails,
+			const updatedStarshipsDetails = {
+				...store.starshipsDetails,
 				[id]: {
 					description: data.result.description,
 					properties: { ...data.result.properties }
 				}
 			};
 		
-			setStore({ vehicleDetails: updatedVehicleDetails });
+			setStore({ starshipsDetails: updatedStarshipsDetails });
 		},
 				
 
@@ -112,6 +113,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		
 
+		
 		AddFavorite: (favItem) => {
 		const store = getStore();
 		store.favorites.push(favItem);

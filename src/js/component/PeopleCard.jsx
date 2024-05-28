@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { Context } from '../store/appContext';
 
 
@@ -12,6 +12,7 @@ const PeopleCard = ({ name, uid, url })=> {
     }, [uid])
 
     const personDetails = store.personDetails[uid] || {};
+    
     
     return (
         <div className="row">

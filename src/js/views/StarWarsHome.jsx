@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 
 import PeopleCard from '../component/PeopleCard.jsx';
 import PlanetCard from '../component/PlanetCard.jsx';
-import VehicleCard from '../component/VehicleCard.jsx';
+import StarshipsCard from '../component/StartshipsCard.jsx';
 
 const StarWarsHome = () => {
     const {store, actions } = useContext(Context);
@@ -50,16 +50,16 @@ const StarWarsHome = () => {
 
             <div className="row mt-5" >
                 <div className="col-2"></div>
-                <div className="col-8 text-warning"><h2>Vehicles</h2></div>
+                <div className="col-8 text-warning"><h2>starships</h2></div>
                 <div className="col-2"></div>
             </div>
             <div className="row">
                 <div className="col-2"></div>
                 <div className="col-8 d-flex overflow-auto justify-content-evenly m-2">
-                {store.vehicles.map(vehicle => {
+                {store.starships.map(starships => {
 
                     return (
-                    <VehicleCard key={vehicle.uid} uid={vehicle.uid} name={vehicle.name} url={vehicle.url} />
+                    <StarshipsCard key={starships.uid} uid={starships.uid} name={starships.name} url={starships.url} />
                     );
                     })}
                 </div>

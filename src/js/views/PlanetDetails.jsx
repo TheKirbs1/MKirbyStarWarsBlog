@@ -21,7 +21,7 @@ const PlanetDetails = ({ name, uid, url }) => {
 			<div className="card mb-3 border-0 bg-dark text-white">
 			<div className="row g-0">
 				<div className="col-md-4">
-					<img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="img-fluid rounded-start mx-3" alt="..." />
+					<img src="https://placehold.co/800x600" className="img-fluid rounded-start mx-3" alt="..." />
 				</div>
 				<div className="col-md-8">
 					<div className="card-body container-fluid mx-5 px-5">
