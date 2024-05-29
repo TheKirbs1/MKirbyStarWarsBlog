@@ -5,11 +5,11 @@ import { Context } from '../store/appContext';
 const StarshipsCard = ({ name, uid, url })=> {
     const { store, actions } = useContext(Context);
 
-    useEffect (() => {
-        actions.getStarshipsDetails(uid)
-    }, [uid])
+    // useEffect (() => {
+    //     actions.getStarshipsDetails(uid)
+    // }, [uid])
 
-    const starshipsDetails = store.starshipsDetails[uid] || {};
+    // const starshipsDetails = store.starshipsDetails[uid] || {};
 
     return (
         <div className="row">
@@ -18,10 +18,10 @@ const StarshipsCard = ({ name, uid, url })=> {
                     <img src={`https://starwars-visualguide.com/assets/img/starships/${uid}.jpg`} className="card-img-top" alt="" />
                     <div className="card-body">
                         <h5 className="card-title"> {name} </h5>
-                        <ul className="list-group list-group-flush">
+                        {/* <ul className="list-group list-group-flush">
                                     <li className="list-group-item"><h5>Hyperdrive Rating: </h5>{starshipsDetails.properties && starshipsDetails.properties.hyperdrive_rating }</li>
                                     <li className="list-group-item"><h5>Pricetag:</h5> { starshipsDetails.properties && starshipsDetails.properties.cost_in_credits}</li>
-                        </ul>
+                        </ul> */}
                         <div>
                             <Link to ={`/starships/${uid}`}>
                                 <button className="btn btn-info">Learn More</button>

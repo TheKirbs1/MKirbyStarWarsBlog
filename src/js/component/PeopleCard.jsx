@@ -7,12 +7,12 @@ const PeopleCard = ({ name, uid, url })=> {
     const { store, actions } = useContext(Context);
 
 
-    useEffect (() => {
-        actions.getPersonDetails(uid)
-    }, [uid])
+    // useEffect (() => {
+    //     actions.getPersonDetails(uid)
+    // }, [uid])
 
-    const personDetails = store.personDetails[uid] || {};
-    console.log("Person Details from PeopleCard:", personDetails);
+    // const personDetails = store.personDetails[uid] || {};
+    // console.log("Person Details from PeopleCard:", personDetails);
     
     return (
         <div className="row">
@@ -21,11 +21,11 @@ const PeopleCard = ({ name, uid, url })=> {
                     <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="card-img-top" alt="" />
                     <div className="card-body">
                         <h5 className="card-title"> {name} </h5>
-                        <ul className="list-group list-group-flush">
+                        {/* <ul className="list-group list-group-flush">
                             <li className="list-group-item"><h5>Gender: </h5>{ personDetails.properties && personDetails.properties.gender }</li>
                             <li className="list-group-item"><h5>Hair Color: </h5>{ personDetails.properties && personDetails.properties.hair_color }</li>
                             <li className="list-group-item"><h5>Eye Color: </h5>{ personDetails.properties && personDetails.properties.eye_color }</li>
-                        </ul>
+                        </ul> */}
                         <div>
                             <Link to ={`/people/${uid}`}>
                                 <button className="btn btn-info">

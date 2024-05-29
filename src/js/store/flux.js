@@ -37,23 +37,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				throw new Error(`${response.status} - ${response.statusText}`);
 			}
 			const data = await response.json();
-			const store = getStore();
-			
-			const updatedPersonDetails = {
-				...store.personDetails,
-				[id]: {
-					description: data.result.description,
-					properties: { ...data.result.properties }
-				}
-			};
+
+			const personalDetails = {
+				description: data.result.description,
+			 	properties: {...data.result.properties}
+			}
 		
-			setStore({ personDetails: updatedPersonDetails });
+			setStore({ personDetails: personalDetails });
 		},
 		
-		
-
-
-
 		getStarships: async () => {
 			const response = await fetch("https://www.swapi.tech/api/starships/");
 			if (!response.ok) {
@@ -63,25 +55,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setStore({starships: data.results})
 		},
 
+				
 		getStarshipsDetails: async (id) => {
 			const response = await fetch(`https://www.swapi.tech/api/starships/${id}`)
 			if (!response.ok) {
 				throw new Error(`${response.status} - ${response.statusText}`);
 			}
 			const data = await response.json();
-			const store = getStore();
-			
+
 			const updatedStarshipsDetails = {
-				...store.starshipsDetails,
-				[id]: {
-					description: data.result.description,
-					properties: { ...data.result.properties }
-				}
-			};
+				description: data.result.description,
+			 	properties: {...data.result.properties}
+			}
 		
 			setStore({ starshipsDetails: updatedStarshipsDetails });
 		},
-				
 
 		getPlanets: async () => {
 			const response = await fetch("https://www.swapi.tech/api/planets/");
@@ -95,24 +83,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 		getPlanetDetails: async (id) => {
 			const response = await fetch(`https://www.swapi.tech/api/planets/${id}`)
 			if (!response.ok) {
-				throw new Error(response.statusText, response.statusText);
+				throw new Error(`${response.status} - ${response.statusText}`);
 			}
 			const data = await response.json();
-		
-			const store = getStore();
-			
-			const updatedPlanetDetails = {
-				...store.PlanetDetails,
-				[id]: {
-					description: data.result.description,
-					properties: { ...data.result.properties }
-				}
-			};
-		
-			setStore({ PlanetDetails: updatedPlanetDetails });
-		},
-		
 
+			const updatedPlanetDetails = {
+				description: data.result.description,
+			 	properties: {...data.result.properties}
+			}
+		
+			setStore({ planetDetails: updatedPlanetDetails });
+		},
 		
 		AddFavorite: (favItem) => {
 		const store = getStore();
@@ -120,7 +101,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 		setStore(store)
 		console.log(store.favorites)
 		},
-
 		deleteFavorite: (deletedItem) => {
 			const store = getStore();
 			const updatedFavorites = store.favorites.filter(item => item !== deletedItem);

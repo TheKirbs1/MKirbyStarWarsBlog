@@ -6,11 +6,11 @@ import { Context } from '../store/appContext';
 const PlanetCard = ({ name, uid, url })=> {
     const { store, actions } = useContext(Context);
 
-    useEffect (() => {
-        actions.getPlanetDetails(uid)
-    }, [uid])
+    // useEffect (() => {
+    //     actions.getPlanetDetails(uid)
+    // }, [uid])
 
-    const planetDetails = store.PlanetDetails[uid] || {};
+    // const planetDetails = store.PlanetDetails[uid] || {};
 
     return (
         <div className="row">
@@ -22,10 +22,10 @@ const PlanetCard = ({ name, uid, url })=> {
                      } className="card-img-top" alt="" />
                     <div className="card-body">
                         <h5 className="card-title"> {name} </h5>
-                        <ul className="list-group list-group-flush">
+                        {/* <ul className="list-group list-group-flush">
                             <li className="list-group-item"><h5>Population: </h5>{planetDetails.properties && planetDetails.properties.population}</li>
                             <li className="list-group-item"><h5>Terrain:  </h5>{planetDetails.properties && planetDetails.properties.terrain}</li> 
-                        </ul>
+                        </ul> */}
                         <div>
                             <Link to ={`/planets/${uid}`}>
                                 <button className="btn btn-info">
