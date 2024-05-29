@@ -86,13 +86,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				throw new Error(`${response.status} - ${response.statusText}`);
 			}
 			const data = await response.json();
+			console.log("Planet detail", data)
+			return data 
 
-			const updatedPlanetDetails = {
-				description: data.result.description,
-			 	properties: {...data.result.properties}
-			}
+			// const updatedPlanetDetails = {
+			// 	description: data.result.description,
+			//  	properties: {...data.result.properties}
+			// }
 		
-			setStore({ planetDetails: updatedPlanetDetails });
+			// setStore({ planetDetails: updatedPlanetDetails });
 		},
 		
 		AddFavorite: (favItem) => {

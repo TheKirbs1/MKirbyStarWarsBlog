@@ -6,7 +6,7 @@ import { useParams } from 'react-router';
 const PersonDetails = ( uid ) => {
     const { store, actions } = useContext(Context);
     const params = useParams();
-
+    const { id } = useParams();
     useEffect (() => {
         actions.getPersonDetails(params.id);
     }, [])
@@ -20,7 +20,7 @@ const PersonDetails = ( uid ) => {
                 <div className="row g-0">
                     <div className="d-flex col-md-1 "></div>
                     <div className="d-flex col-md-4 ">
-                        <img src ="https://placehold.co/800x600" className="card-img-top" alt="" />
+                        <img src ={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}  className="card-img-top" alt="" />
                     </div>
                     <div className="col-md-5">
                         <div className="card-body container-fluid mx-5 px-5">
